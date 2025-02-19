@@ -108,8 +108,10 @@ const PythonCodeEditor = ({ screenIndex, notebook }) => {
 
       // ✅ Extract lesson number from the first object in the array
       const lessonNumber = notebook[0].lesson_number;
+      // ✅ Use full URL for online deployment
+      const API_BASE_URL = "https://datalearnai.up.railway.app";
       try {
-          const response = await fetch(`/api/run_code/${lessonNumber}/`, {
+          const response = await fetch(`${API_BASE_URL}/api/run_code/${lessonNumber}/`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ code }),
